@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="text-center mb-4">
+      <h2>Invoice</h2>
+      <p class="lead">Thank you for your payment.</p>
+    </div>
+
+    <!-- Invoice Card -->
+    <div class="card shadow-sm" style="max-width: 800px; margin: 0 auto;">
+      <div class="card-body">
+        <!-- Invoice Header -->
+        <div class="text-center mb-4">
+          <h4 class="card-title">Registration Invoice</h4>
+          <p>Invoice Date: <span id="invoice-date">12/11/2024</span></p>
+          <p>Invoice Number: <span id="invoice-number">INV-000123</span></p>
+        </div>
+
+        <!-- Customer Information -->
+        <div class="mb-4">
+          <h5>Customer Information</h5>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Email:</strong> john.doe@example.com</p>
+          <p><strong>Phone:</strong> (123) 456-7890</p>
+        </div>
+
+        <!-- Payment Summary -->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Amount (RM)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Registration Fee</td>
+                <td id="registration-fee">RM0.00</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td><strong id="total-amount">RM0.00</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Payment Status -->
+        <div class="text-center mt-4">
+          <p><strong>Payment Status:</strong> <span class="text-success">Paid</span></p>
+          <p><strong>Payment Method:</strong> Credit Card</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="text-center mt-4">
+          <p>If you have any questions about this invoice, please contact:</p>
+          <p><strong>Email:</strong> kalakshetra@gmail.com | <strong>Phone:</strong> (019) 244-5175</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script to Populate Registration Fee from URL Parameters -->
+  <script>
+    function getQueryParams() {
+      const params = {};
+      window.location.search.substring(1).split('&').forEach(param => {
+        const [key, value] = param.split('=');
+        params[key] = decodeURIComponent(value);
+      });
+      return params;
+    }
+
+    const params = getQueryParams();
+    const feeDisplay = document.getElementById('registration-fee');
+    const totalAmountDisplay = document.getElementById('total-amount');
+    if (params.fee) {
+      feeDisplay.textContent = `RM${params.fee}.00`;
+      totalAmountDisplay.textContent = `RM${params.fee}.00`;
+    }
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalakshetra – Dance Showdown</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+  }
+
+  .hero {
+    background-image: linear-gradient(rgb(207, 60, 60), rgba(219, 84, 0, 0.806)), url('your-background-image.jpg');
+    background-size: cover;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  .btn-custom {
+    background-color: #c40000ea;
+    color: white;
+  }
+
+  .bg-dark-blue {
+    background-color: #100e0e;
+  }
+
+  #event-details {
+    background: linear-gradient(135deg, #f9f9f9 40%, #e0e0ff);
+    color: #5a5a5a;
+  }
+
+  #tickets {
+    background: linear-gradient(135deg, #dff2e6 40%, #e2e6ff);
+  }
+
+  footer {
+    background-color: #1a1a40;
+    color: #e9ecef;
+  }
+
+  footer a {
+    color: #e9ecef;
+    transition: color 0.3s;
+  }
+
+  footer a:hover {
+    color: #007bff;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark-blue">
+    <a class="navbar-brand" href="#">Kalakshetra 4.0</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Participant/2.registration.html">Participants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Merchandise/4.merchandise.html">Merchandise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#login-register">Login/Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1 class="display-4">Kalakshetra</h1>
+    <p class="lead">Step into the rhythm of excitement at the ultimate dance showdown!</p>
+    <a href="/Views/Participant/2.registration.html" class="btn btn-custom btn-lg">Register Now</a>
+  </header>
+
+  <section id="event-details" class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Event Details</h2>
+      <p><strong>Date:</strong> 5th May 2023</p>
+      <p><strong>Time:</strong> 7:00 p.m.</p>
+      <p><strong>Venue:</strong> Dewan Budaya, USM</p>
+    </div>
+  </section>
+
+  <section id="tickets" class="py-5 text-center bg-light">
+    <div class="container">
+      <h2 class="mb-4">Get Your Ticket</h2>
+      <p>Only RM 5.00</p>
+      <a href="/Views/Audience/7.audience_regis.html" class="btn btn-custom">Buy Now</a>
+    </div>
+  </section>
+
+  <footer class="py-4 bg-dark-blue text-white text-center">
+    <!-- Contact Information -->
+    <div class="mb-3">
+      <p>Contact Us:</p>
+      <p>Name 1 (019-2445175) | Name 2 (016-2847518)</p>
+      <p>Email: <a href="mailto:kalakshetra@gmail.com" class="text-white">kalakshetra@gmail.com</a></p>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="mb-3">
+      <p>Follow us on:</p>
+      <a href="https://www.facebook.com" class="text-white mr-3" target="_blank">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a href="https://www.instagram.com" class="text-white mr-3" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://www.youtube.com" class="text-white mr-3" target="_blank">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+      <a href="https://www.twitter.com" class="text-white" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div>
+      <p class="small mb-0">&copy; 2024 Kalakshetra. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

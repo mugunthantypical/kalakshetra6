@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participant Registration Form</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<style>
+  
+  .form-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .form-subtitle {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f1f3f4;
+    border-radius: 5px;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+</style>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="form-title">Participant Registration Form</h2>
+    <p class="text-center">Please fill the form below keenly</p>
+    <br>
+    <form id="registration-form">
+      <div class="form-group mt-3">
+        <label for="category">Performance Category</label>
+        <select class="form-control" id="category" name="category" required>
+          <option value="dance_individual">Dance - Individual</option>
+          <option value="dance_group">Dance - Group</option>
+        </select>
+      </div>
+
+      <div id="participant-fields"></div>
+
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-primary" id="pay-button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('category').addEventListener('change', function() {
+      const participantFields = document.getElementById('participant-fields');
+      participantFields.innerHTML = '';
+      const isGroup = this.value === 'dance_group';
+      const numParticipants = isGroup ? 5 : 1;
+      for (let i = 1; i <= numParticipants; i++) {
+        const title = isGroup && i === 1 ? 'Leader' : (isGroup ? `Participant ${i}` : 'Participant');
+        participantFields.appendChild(createParticipantCard(i, title));
+      }
+    });
+
+    function createParticipantCard(index, title) {
+      const card = document.createElement('div');
+      card.classList.add('card', 'mb-3');
+      
+      card.innerHTML = `
+        <div class="card-body">
+          <h5 class="card-title">${title}</h5>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="first-name-${index}">First Name</label>
+              <input type="text" class="form-control" id="first-name-${index}" name="first-name-${index}" required>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="last-name-${index}">Last Name</label>
+              <input type="text" class="form-control" id="last-name-${index}" name="last-name-${index}" required>
+            </div>
+            <div class="col-md-4 form-group">
+              <label for="gender-${index}">Gender</label>
+              <select class="form-control" id="gender-${index}" name="gender-${index}" required>
+                <option value="">Please Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group">
+              <label for="age-${index}">Age</label>
+              <input type="number" class="form-control" id="age-${index}" name="age-${index}" required>
+            </div>
+            <div class="col-md-4 form-group">
+              <label for="mykad-${index}">Mykad ID</label>
+              <input type="text" class="form-control" id="mykad-${index}" name="mykad-${index}" required>
+            </div>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    document.getElementById('pay-button').addEventListener('click', function() {
+      const category = document.getElementById('category').value;
+      const fee = category === 'dance_group' ? 50 : 10;
+      window.location.href = `3.payment.html?fee=${fee}`;
+    });
+  </script>
+</body>
+</html>

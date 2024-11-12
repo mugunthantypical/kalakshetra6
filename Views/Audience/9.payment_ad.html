@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Payment</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="text-center mb-5">
+    <br>
+    <h2>Ticket Payment</h2>
+    <p class="lead">Please complete your payment to finalize the registration.</p>
+    <div class="card shadow-sm" style="max-width: 400px; margin: 0 auto;">
+      <div class="card-body text-center">
+        <h4>Registration Fee</h4>
+        <h2 class="text-primary" id="ticket-fee">RM5.00</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm" style="max-width: 600px; margin: 0 auto;">
+    <div class="card-body">
+      <h4 class="card-title mb-4 text-center">Payment Information</h4>
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="card-number">Card Number</label>
+          <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9123 4567" required>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 form-group">
+            <label for="expiry-date">Expiry Date</label>
+            <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="123" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="card-holder">Card Holder's Name</label>
+          <input type="text" class="form-control" id="card-holder" placeholder="John Doe" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Pay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve query parameters from the URL
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        name: params.get("name"),
+        email: params.get("email"),
+        phone: params.get("phone"),
+        numberOfTickets: params.get("numberOfTickets"),
+      };
+    }
+
+    // Handle form submission
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Retrieve parameters
+      const { name, email, phone, numberOfTickets } = getQueryParams();
+
+      // Generate a unique ticket ID
+      const ticketID = 'TK-' + Math.floor(Math.random() * 10000);
+
+      // Redirect to ticketing page with details
+      const ticketingPage = `8.ticketing.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&numberOfTickets=${encodeURIComponent(numberOfTickets)}&ticketID=${encodeURIComponent(ticketID)}`;
+      window.location.href = ticketingPage;
+    });
+  </script>
+</body>
+</html>

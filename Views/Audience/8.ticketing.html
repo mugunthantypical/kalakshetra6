@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalakshetra Dance Competition - Audience Ticket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .ticket {
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+        }
+        .ticket h3 {
+            color: #007bff;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Kalakshetra 5.0</h1>
+        <h2 class="text-center">Audience Ticket</h2>
+
+        <div class="ticket" id="ticket">
+            <h3 class="text-center">Audience Ticket</h3>
+            <p><strong>Name:</strong> <span id="ticketName"></span></p>
+            <p><strong>Email:</strong> <span id="ticketEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="ticketPhone"></span></p>
+            <p><strong>Number of Tickets:</strong> <span id="ticketCount"></span></p>
+            <p><strong>Event Date:</strong> November 10, 2024</p>
+            <p><strong>Event Time:</strong> 5:00 PM</p>
+            <p><strong>Venue:</strong> Kalakshetra Foundation, Chennai</p>
+            <p><strong>Ticket ID:</strong> <span id="ticketID"></span></p>
+        </div>
+
+        <div class="text-center">
+            <button id="downloadTicket" class="btn btn-success mt-4">Download Ticket</button>
+          </div>
+    </div>
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let m;
+
+            while (m = regex.exec(queryString)) {
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+
+            return params;
+        }
+
+        // Get the parameters from the URL
+        const params = getQueryParams();
+
+        // Populate ticket details from the URL parameters
+        document.getElementById('ticketName').innerText = params.name || 'N/A';
+        document.getElementById('ticketEmail').innerText = params.email || 'N/A';
+        document.getElementById('ticketPhone').innerText = params.phone || 'N/A';
+        document.getElementById('ticketCount').innerText = params.numberOfTickets || 'N/A';
+        document.getElementById('ticketID').innerText = params.ticketID || 'N/A';
+
+        // Function to download the ticket as a PDF
+        document.getElementById('downloadTicket').addEventListener('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add ticket content to the PDF
+            doc.setFontSize(20);
+            doc.text('Audience Ticket', 20, 20);
+            doc.setFontSize(12);
+            doc.text(`Name: ${params.name}`, 20, 30);
+            doc.text(`Email: ${params.email}`, 20, 40);
+            doc.text(`Phone: ${params.phone}`, 20, 50);
+            doc.text(`Number of Tickets: ${params.numberOfTickets}`, 20, 60);
+            doc.text(`Event Date: November 10, 2024`, 20, 70);
+            doc.text(`Event Time: 5:00 PM`, 20, 80);
+            doc.text(`Venue: Kalakshetra Foundation, Chennai`, 20, 90);
+            doc.text(`Ticket ID: ${params.ticketID}`, 20, 100);
+
+            // Save the PDF
+            doc.save('ticket.pdf');
+        });
+    </script>
+</body>
+</html>
