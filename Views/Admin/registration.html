@@ -31,73 +31,83 @@
     <br>
     <form id="registration-form">
       <div class="form-group mt-3">
-        <label for="category">Performance Category</label>
+        <label for="team-name">Team/Participant Name</label>
+        <input type="text" class="form-control" id="team-name" name="team-name" required>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="category">Category</label>
         <select class="form-control" id="category" name="category" required>
-          <option value="dance_individual">Dance - Individual</option>
-          <option value="dance_group">Dance - Group</option>
+          <option value="">Select Category</option>
+          <option value="dance_individual">Individual</option>
+          <option value="dance_group">Group</option>
         </select>
       </div>
 
       <div id="participant-fields"></div>
 
+      <div id="group-controls" style="display: none;" class="text-center mt-3">
+        <button type="button" class="btn btn-info" id="add-member">Add Team Member</button>
+      </div>
+
       <div class="text-center mt-4">
-        <button type="button" class="btn btn-primary" id="submit-button">Submit</button>
+        <button type="button" class="btn btn-primary" id="submit-button">Submit & Proceed to Payment</button>
       </div>
     </form>
   </div>
 
   <script>
+    let memberCount = 1;
+
     document.getElementById('category').addEventListener('change', function() {
       const participantFields = document.getElementById('participant-fields');
+      const groupControls = document.getElementById('group-controls');
       participantFields.innerHTML = '';
+      memberCount = 1;
+
       const isGroup = this.value === 'dance_group';
-      const numParticipants = isGroup ? 5 : 1;
-      for (let i = 1; i <= numParticipants; i++) {
-        const title = isGroup && i === 1 ? 'Leader' : (isGroup ? `Participant ${i}` : 'Participant');
-        participantFields.appendChild(createParticipantCard(i, title));
-      }
+      const title = isGroup ? 'Team Leader' : 'Participant';
+      
+      participantFields.appendChild(createParticipantCard(1, title));
+      groupControls.style.display = isGroup ? 'block' : 'none';
     });
 
     function createParticipantCard(index, title) {
       const card = document.createElement('div');
       card.classList.add('card', 'mb-3');
+      card.id = `member-card-${index}`;
       
       card.innerHTML = `
         <div class="card-body">
-          <h5 class="card-title">${title}</h5>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">${title}</h5>
+            ${index > 1 ? `<button type="button" class="btn btn-danger btn-sm" onclick="removeMember(${index})">Remove</button>` : ''}
+          </div>
           <div class="row">
             <div class="col-md-6 form-group">
-              <label for="first-name-${index}">First Name</label>
-              <input type="text" class="form-control" id="first-name-${index}" name="first-name-${index}" required>
-            </div>
-            <div class="col-md-6 form-group">
-              <label for="last-name-${index}">Last Name</label>
-              <input type="text" class="form-control" id="last-name-${index}" name="last-name-${index}" required>
-            </div>
-            <div class="col-md-6 form-group">
-              <label for="email-${index}">Email</label>
-              <input type="email" class="form-control" id="email-${index}" name="email-${index}" required>
+              <label for="name-${index}">Full Name</label>
+              <input type="text" class="form-control" id="name-${index}" name="name-${index}" required>
             </div>
             <div class="col-md-6 form-group">
               <label for="matric-${index}">Matric Number</label>
               <input type="text" class="form-control" id="matric-${index}" name="matric-${index}" required>
             </div>
-            <div class="col-md-4 form-group">
+            <div class="col-md-6 form-group">
+              <label for="email-${index}">Email</label>
+              <input type="email" class="form-control" id="email-${index}" name="email-${index}" required>
+            </div>
+            <div class="col-md-3 form-group">
               <label for="gender-${index}">Gender</label>
               <select class="form-control" id="gender-${index}" name="gender-${index}" required>
-                <option value="">Please Select</option>
+                <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
               </select>
             </div>
-            <div class="col-md-4 form-group">
+            <div class="col-md-3 form-group">
               <label for="age-${index}">Age</label>
               <input type="number" class="form-control" id="age-${index}" name="age-${index}" required>
-            </div>
-            <div class="col-md-4 form-group">
-              <label for="mykad-${index}">Mykad ID</label>
-              <input type="text" class="form-control" id="mykad-${index}" name="mykad-${index}" required>
             </div>
           </div>
         </div>
@@ -105,20 +115,41 @@
       return card;
     }
 
+    document.getElementById('add-member').addEventListener('click', function() {
+      memberCount++;
+      if (memberCount <= 5) {
+        const participantFields = document.getElementById('participant-fields');
+        participantFields.appendChild(createParticipantCard(memberCount, `Team Member ${memberCount}`));
+      }
+      if (memberCount === 5) {
+        this.style.display = 'none';
+      }
+    });
+
+    function removeMember(index) {
+      const card = document.getElementById(`member-card-${index}`);
+      card.remove();
+      memberCount--;
+      document.getElementById('add-member').style.display = 'block';
+    }
+
     document.getElementById('submit-button').addEventListener('click', function() {
+      if (!validateForm()) {
+        return;
+      }
+
       const category = document.getElementById('category').value;
+      const teamName = document.getElementById('team-name').value;
       const isGroup = category === 'dance_group';
-      const numParticipants = isGroup ? 5 : 1;
       
       let registrations = JSON.parse(localStorage.getItem('registrations') || '[]');
       
       const participants = [];
-      for (let i = 1; i <= numParticipants; i++) {
+      for (let i = 1; i <= memberCount; i++) {
         participants.push({
-          firstName: document.getElementById(`first-name-${i}`).value,
-          lastName: document.getElementById(`last-name-${i}`).value,
-          email: document.getElementById(`email-${i}`).value,
+          name: document.getElementById(`name-${i}`).value,
           matric: document.getElementById(`matric-${i}`).value,
+          email: document.getElementById(`email-${i}`).value,
           gender: document.getElementById(`gender-${i}`).value,
           age: document.getElementById(`age-${i}`).value
         });
@@ -126,7 +157,8 @@
       
       const registration = {
         id: registrations.length + 1,
-        category: category === 'dance_group' ? 'Group' : 'Individual',
+        teamName: teamName,
+        category: isGroup ? 'Group' : 'Individual',
         participants: participants,
         status: 'Pending',
         timestamp: new Date().toISOString()
@@ -135,8 +167,29 @@
       registrations.push(registration);
       localStorage.setItem('registrations', JSON.stringify(registrations));
       
-      alert('Registration submitted successfully!');
+      const fee = isGroup ? 50 : 10;
+      window.location.href = `3.payment.html?fee=${fee}`;
     });
+
+    function validateForm() {
+      const form = document.getElementById('registration-form');
+      const inputs = form.querySelectorAll('input, select');
+      let isValid = true;
+
+      inputs.forEach(input => {
+        if (input.hasAttribute('required') && !input.value) {
+          input.classList.add('is-invalid');
+          isValid = false;
+        } else {
+          input.classList.remove('is-invalid');
+        }
+      });
+
+      if (!isValid) {
+        alert('Please fill in all required fields.');
+      }
+      return isValid;
+    }
   </script>
 </body>
 </html>
