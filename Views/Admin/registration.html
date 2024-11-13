@@ -8,19 +8,126 @@
 </head>
 
 <style>
+  body {
+    background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+    color: white;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+  
+  .container {
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
   .form-title {
     text-align: center;
     margin-top: 20px;
+    color: white;
+    font-weight: bold;
   }
+
   .form-subtitle {
     font-size: 1.1em;
     font-weight: bold;
     padding: 10px;
-    background-color: #f1f3f4;
+    background-color: rgba(255, 69, 0, 0.1);
     border-radius: 5px;
+    color: white;
   }
+
   .form-group {
     margin-bottom: 1rem;
+  }
+
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #FF4500;
+    color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 69, 0, 0.25);
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .card {
+    background-color: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .card-body {
+    color: white;
+  }
+
+  .card-title {
+    color: #FF4500;
+  }
+
+  .btn-primary {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    padding: 10px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #cc3700;
+    border-color: #cc3700;
+    transform: translateY(-2px);
+  }
+
+  .btn-info {
+    background-color: #8B1F2F;
+    border-color: #8B1F2F;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-info:hover {
+    background-color: #6b1824;
+    border-color: #6b1824;
+    transform: translateY(-2px);
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transition: all 0.3s ease;
+  }
+
+  .btn-danger:hover {
+    background-color: #bd2130;
+    border-color: #bd2130;
+  }
+
+  label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  select option {
+    background-color: #1A1A1A;
+    color: white;
+  }
+
+  .is-invalid {
+    border-color: #dc3545;
+  }
+
+  .text-center {
+    color: rgba(255, 255, 255, 0.8);
   }
 </style>
 
