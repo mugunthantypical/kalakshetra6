@@ -1,220 +1,220 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #2b1819;
-    color: #ffffff;
-  }
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2b1819;
+  color: #ffffff;
+}
 
-  .navbar {
-    background-color: #830808; /* Dark greenish color for background */
-    font-family: 'Arial', sans-serif;
-  }
+.navbar {
+  background-color: #830808; /* Dark greenish color for background */
+  font-family: 'Arial', sans-serif;
+}
 
-  .navbar-brand {
-    color: #FFFFFF; /* White color for brand name */
-    font-weight: bold;
-    font-size: 1.5rem; /* Increase font size for brand */
-    margin-right: 20px;
-  }
+.navbar-brand {
+  color: #FFFFFF; /* White color for brand name */
+  font-weight: bold;
+  font-size: 1.5rem; /* Increase font size for brand */
+  margin-right: 20px;
+}
 
-  .nav-link {
-    color: #FFFFFF !important; /* White text for links */
-    font-size: 1rem; /* Set font size for links */
-    margin: 0 10px;
-    transition: color 0.3s ease; /* Smooth transition on hover */
-  }
+.nav-link {
+  color: #FFFFFF !important; /* White text for links */
+  font-size: 1rem; /* Set font size for links */
+  margin: 0 10px;
+  transition: color 0.3s ease; /* Smooth transition on hover */
+}
 
-  .nav-link:hover {
-    color: #ffa200 !important; /* Orange color on hover */
-  }
+.nav-link:hover {
+  color: #ffa200 !important; /* Orange color on hover */
+}
 
-  .hero-section-1, .hero-section-2, .hero-section-3, .hero-section-4 , .hero-section-5 {
-    display: flex;
-    align-items: center; /* Vertically center the content */
-    justify-content: center; /* Horizontally center the content */
-    min-height: 80vh; /* Set minimum height for the hero section */
-    background: linear-gradient(45deg, #2b1819, #3a1f20);
-    text-align: center;
-  }
+.hero-section-1, .hero-section-2, .hero-section-3, .hero-section-4 , .hero-section-5 {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  min-height: 80vh; /* Set minimum height for the hero section */
+  background: linear-gradient(45deg, #2b1819, #3a1f20);
+  text-align: center;
+}
 
-  .hero-section-1 {
-    /* background-image: url('/Pictures/Cover\ Picture.png'); */
-    background-size: cover;
-    background-position: center;
-  }
+.hero-section-1 {
+  /* background-image: url('/Pictures/Cover\ Picture.png'); */
+  background-size: cover;
+  background-position: center;
+}
 
-  .hero-content {
-    justify-content: center;
-    text-align: center; /* Center text within the content */
-    padding: 20px;
-   /* max-width: 600px;  Limit content width for better readability */
-  }
+.hero-content {
+  justify-content: center;
+  text-align: center; /* Center text within the content */
+  padding: 20px;
+ /* max-width: 600px;  Limit content width for better readability */
+}
 
-  .hero-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
-  .hero-description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #cccccc;
-  }
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #cccccc;
+}
 
-  .hero-content h3 {
-    font-size: 1.8rem;
-    margin-top: 20px;
-    color: #f0f0ec; /* Golden color for 'Event Details' title */
-  }
+.hero-content h3 {
+  font-size: 1.8rem;
+  margin-top: 20px;
+  color: #f0f0ec; /* Golden color for 'Event Details' title */
+}
 
-  .hero-content p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
 
-  /* .container {
-    max-width: 10000px;
-    margin: 0 auto;
-    padding: 0px 0px 0px 500px;
+/* .container {
+  max-width: 10000px;
+  margin: 0 auto;
+  padding: 0px 0px 0px 500px;
 } */
 
-  .btn-custom {
-    background-color: #E07734; /* Orange background for button */
-    color: #FFFFFF;
-    padding: 10px 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    display: inline-block;
-    margin-top: 20px;
-  }
+.btn-custom {
+  background-color: #E07734; /* Orange background for button */
+  color: #FFFFFF;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  display: inline-block;
+  margin-top: 20px;
+}
 
-  .btn-custom:hover {
-    background-color: #D0632A; /* Darker orange on hover */
-    text-decoration: none;
-    color: white;
-    transform: translateY(-2px);
-  }
+.btn-custom:hover {
+  background-color: #D0632A; /* Darker orange on hover */
+  text-decoration: none;
+  color: white;
+  transform: translateY(-2px);
+}
 
-  .get-quote {
-    background-color: #ff4500;
-    color: white;
-    padding: 8px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-  }
+.get-quote {
+  background-color: #ff4500;
+  color: white;
+  padding: 8px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-  .get-quote:hover {
-    background-color: #ff5722;
-    color: white;
-    text-decoration: none;
-  }
+.get-quote:hover {
+  background-color: #ff5722;
+  color: white;
+  text-decoration: none;
+}
 
-  .content-box {
-    background-color: #ff4500;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-  }
+.content-box {
+  background-color: #ff4500;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
 
-  .latest-news {
-    background-color: #3a1f20;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-  }
+.latest-news {
+  background-color: #3a1f20;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
 
-  #event-details, #tickets {
-    background: transparent;
-    color: white;
-  }
+#event-details, #tickets {
+  background: transparent;
+  color: white;
+}
 
-  footer {
-    background-color: #1a1010;
-    color: #ffffff;
-  }
+footer {
+  background-color: #1a1010;
+  color: #ffffff;
+}
 
-  footer a {
-    color: #ffffff;
-  }
+footer a {
+  color: #ffffff;
+}
 
-  footer a:hover {
-    color: #ff4500;
-    text-decoration: none;
-  }
+footer a:hover {
+  color: #ff4500;
+  text-decoration: none;
+}
 
 /* Prize Pool section styling */
 
 .prize-pool-section {
-    background-color:  #2b1819;
-    padding: 50px 20px;
-    text-align: center;
-    color: #ffffff;
+  background-color:  #2b1819;
+  padding: 50px 20px;
+  text-align: center;
+  color: #ffffff;
 }
 
 .prize-pool-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
 .prize-pool-subtitle {
-    font-size: 1.5em;
-    color: #f7b33e;
-    margin-bottom: 30px;
+  font-size: 1.5em;
+  color: #f7b33e;
+  margin-bottom: 30px;
 }
 
 .total-prize {
-    color: #ff812d;
-    font-weight: bold;
+  color: #ff812d;
+  font-weight: bold;
 }
 
 .prize-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .prize-box {
-    width: 200px;
-    padding: 20px;
-    border-radius: 8px;
-    color: #ffffff;
-    text-align: center;
-    font-size: 1.2em;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  padding: 20px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .champion {
-    background-color: #ff812d;
+  background-color: #ff812d;
 }
 
 .runner-up, .second-runner-up {
-    background-color: #4a8cbe;
+  background-color: #4a8cbe;
 }
 
 .fourth-place, .fifth-place, .consolation {
-    background-color: #1f2e3b;
+  background-color: #1f2e3b;
 }
 
 .prize-box h3 {
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .prize-box p {
-    font-size: 1.5em;
-    margin: 0;
-    font-weight: bold;
+  font-size: 1.5em;
+  margin: 0;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
-    .prize-box {
-        width: 100%;
-    }
+  .prize-box {
+      width: 100%;
+  }
 }
