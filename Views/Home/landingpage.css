@@ -213,6 +213,53 @@ footer a:hover {
   font-weight: bold;
 }
 
+.hero-section-5 {
+  background-color: #1A1010;
+  padding: 80px 0;
+}
+
+.hero-title {
+  color: #FFFFFF;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  color: #CCCCCC;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.accordion-item {
+  background-color: #2B1819;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.accordion-button {
+  background-color: #2B1819;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #830808;
+  color: #FFFFFF;
+}
+
+.accordion-body {
+  background-color: #2B1819;
+  color: #CCCCCC;
+  font-size: 1rem;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+}
+
 @media (max-width: 768px) {
   .prize-box {
       width: 100%;
