@@ -8,6 +8,11 @@
 </head>
 
 <style>
+  body {
+    background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+    color: white;
+  }
+
   .success-container {
     display: flex;
     justify-content: center;
@@ -15,9 +20,24 @@
     height: 100vh;
     flex-direction: column;
   }
+
   .success-icon {
     font-size: 3rem;
-    color: green;
+    color: #28a745;
+  }
+
+  .btn-primary {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    padding: 10px 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #cc3700;
+    border-color: #cc3700;
+    transform: translateY(-2px);
   }
 </style>
 
