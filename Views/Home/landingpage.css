@@ -245,6 +245,10 @@ footer a:hover {
   font-weight: bold;
   padding: 20px;
   border-radius: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .accordion-button:not(.collapsed) {
@@ -258,6 +262,19 @@ footer a:hover {
   font-size: 1rem;
   padding: 20px;
   border-radius: 0 0 10px 10px;
+}
+
+.accordion-button::after {
+  content: "\002B";
+  font-size: 1.5rem;
+}
+
+details[open] .accordion-button {
+  background-color: #830808;
+}
+
+details[open] .accordion-button::after {
+  content: "\00D7";
 }
 
 @media (max-width: 768px) {
