@@ -167,6 +167,7 @@ footer a:hover {
 .prize-pool-title {
   font-size: 2.5em;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .prize-pool-subtitle {
