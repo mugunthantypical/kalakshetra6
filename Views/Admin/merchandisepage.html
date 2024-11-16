@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalakshetra 6.0 - Merchandise Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Kalakshetra 6.0</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminpage.html#participantManagement">
+                                <i class="fas fa-users"></i> Participant Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminpage.html#audienceManagement">
+                                <i class="fas fa-users"></i> Audience Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminpage.html#scheduleManagement">
+                                <i class="fas fa-calendar-alt"></i> Event Schedule Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="merchandisepage.html">
+                                <i class="fas fa-shopping-cart"></i> Merchandise Management
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-10 ms-sm-auto px-4">
+                <div class="container mt-4">
+                    <!-- Add/Edit Merchandise Form -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4 id="formTitle">Add New Merchandise</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="merchandiseForm">
+                                <input type="hidden" id="editItemId">
+                                <div class="mb-3">
+                                    <label class="form-label">Item Name</label>
+                                    <input type="text" class="form-control" id="itemName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Price (RM)</label>
+                                    <input type="number" step="0.01" class="form-control" id="itemPrice" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" id="itemDescription" rows="3" required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Image URL</label>
+                                    <input type="text" class="form-control" id="itemImage" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Item</button>
+                                <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Merchandise List -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Merchandise List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="merchandiseTableBody">
+                                        <!-- Items will be loaded here dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sales Report -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Sales Report</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Date</th>
+                                            <th>Customer Name</th>
+                                            <th>Email</th>
+                                            <th>Items</th>
+                                            <th>Total Payment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="salesTableBody">
+                                        <!-- Sales data will be loaded here dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMerchandise();
+            loadSales();
+            
+            document.getElementById('merchandiseForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveMerchandise();
+            });
+        });
+
+        function loadMerchandise() {
+            const merchandise = JSON.parse(localStorage.getItem('merchandise') || '[]');
+            const tableBody = document.getElementById('merchandiseTableBody');
+            tableBody.innerHTML = '';
+
+            merchandise.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><img src="${item.image}" alt="${item.name}" style="height: 50px;"></td>
+                    <td>${item.name}</td>
+                    <td>RM ${item.price.toFixed(2)}</td>
+                    <td>${item.description}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="editItem(${index})">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteItem(${index})">Delete</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function loadSales() {
+            const sales = JSON.parse(localStorage.getItem('sales') || '[]');
+            const tableBody = document.getElementById('salesTableBody');
+            tableBody.innerHTML = '';
+
+            sales.forEach(sale => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${new Date(sale.date).toLocaleDateString()}</td>
+                    <td>${sale.customerName}</td>
+                    <td>${sale.email}</td>
+                    <td>${formatItems(sale.items)}</td>
+                    <td>RM ${sale.total.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function formatItems(items) {
+            return items.map(item => `${item.name} (${item.quantity})`).join(', ');
+        }
+
+        function saveMerchandise() {
+            const editItemId = document.getElementById('editItemId').value;
+            const merchandise = JSON.parse(localStorage.getItem('merchandise') || '[]');
+            
+            const item = {
+                name: document.getElementById('itemName').value,
+                price: parseFloat(document.getElementById('itemPrice').value),
+                description: document.getElementById('itemDescription').value,
+                image: document.getElementById('itemImage').value
+            };
+
+            if (editItemId === '') {
+                merchandise.push(item);
+            } else {
+                merchandise[parseInt(editItemId)] = item;
+            }
+
+            localStorage.setItem('merchandise', JSON.stringify(merchandise));
+            resetForm();
+            loadMerchandise();
+        }
+
+        function editItem(index) {
+            const merchandise = JSON.parse(localStorage.getItem('merchandise') || '[]');
+            const item = merchandise[index];
+            
+            document.getElementById('editItemId').value = index;
+            document.getElementById('itemName').value = item.name;
+            document.getElementById('itemPrice').value = item.price;
+            document.getElementById('itemDescription').value = item.description;
+            document.getElementById('itemImage').value = item.image;
+            document.getElementById('formTitle').textContent = 'Edit Merchandise';
+        }
+
+        function deleteItem(index) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                const merchandise = JSON.parse(localStorage.getItem('merchandise') || '[]');
+                merchandise.splice(index, 1);
+                localStorage.setItem('merchandise', JSON.stringify(merchandise));
+                loadMerchandise();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('merchandiseForm').reset();
+            document.getElementById('editItemId').value = '';
+            document.getElementById('formTitle').textContent = 'Add New Merchandise';
+        }
+    </script>
+</body>
+</html>
