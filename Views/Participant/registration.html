@@ -14,24 +14,45 @@
         margin: 0; /* Remove default margin */
     }
 
+    .navbar {
+  background-color: #830808; /* Dark greenish color for background */
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand {
+  color: #FFFFFF; /* White color for brand name */
+  font-weight: bold;
+  font-size: 1.5rem; /* Increase font size for brand */
+  margin-right: 20px;
+}
+
+.nav-link {
+  color: #FFFFFF !important; /* White text for links */
+  font-size: 1rem; /* Set font size for links */
+  margin: 0 10px;
+  transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.nav-link:hover {
+  color: #ffa200 !important; /* Orange color on hover */
+}
+
   body {
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/Pictures/Baratham_Pic3.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/Pictures/Baratham_Pic3.jpg"); 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     color: #f0f0f5;
     font-family: 'Arial', sans-serif;
-    /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
-    color: white;
-    min-height: 100vh;
-    padding: 40px 0; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 80vh;
   }
   
   .container {
     background-color: rgba(26, 26, 26, 0.9);
     border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);    
   }
 
   .form-title {
@@ -144,6 +165,39 @@
 </style>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Kalakshetra 6.0
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Participant/registration.html">Participants</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Merchandise/4.merchandise.html">Merchandise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Audience/7.audience_regis.html">Audience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Views/Home/1.landingpage.html#faqSection">FAQ</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="/Views/Admin/adminpage.html" class="btn btn-custom1">Admin Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="container mt-5">
     <h2 class="form-title">Participant Registration Form</h2>
     <p class="text-center">Please fill the form below keenly</p>
