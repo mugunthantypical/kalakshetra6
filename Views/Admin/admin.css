@@ -1,0 +1,85 @@
+/* Admin Panel Styling */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #2b1819;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar-header {
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 3px ridge rgba(215, 0, 0, 0.685);
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #E07734;
+}
+
+.sidebar .nav-link.active {
+    background-color: #E07734;
+    color: #ffffff;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Styling */
+.card {
+    border: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+}
+
+.btn-primary {
+    background-color: #E07734;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #D0632A;
+}
+
+/* Table Styling */
+.table th {
+    border-top: none;
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Modal Styling */
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+} 

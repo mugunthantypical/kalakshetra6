@@ -14,66 +14,41 @@
     />
   </head>
 
-<style>
-  body {
-    font-family: 'Arial', sans-serif;
-  }
-</style>
+  <link rel="stylesheet" href="admin.css">
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Kalakshetra 6.0</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#"
-                ><i class="fas fa-user"></i> Admin Dashboard</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fas fa-sign-out-alt"></i>
-                Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
-          <div class="sidebar-sticky">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+          <div class="position-sticky">
+            <div class="sidebar-header">
+              <h3>Admin Panel</h3>
+            </div>
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#participantManagement">
+                <a class="nav-link active" href="adminpage.html">
                   <i class="fas fa-users"></i> Participant Management
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="#audienceManagement">
-                  <i class="fas fa-users"></i> Audience Management
+                <a class="nav-link" href="audiencemanagement.html">
+                  <i class="fas fa-ticket-alt"></i> Audience Management
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#scheduleManagement">
-                  <i class="fas fa-calendar-alt"></i> Event Schedule Management
+                <a class="nav-link" href="eventschedule.html">
+                  <i class="fas fa-calendar-alt"></i> Event Schedule
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="merchandisepage.html">
-                  <i class="fas fa-shopping-cart"></i> Merchandise Management
+                <a class="nav-link" href="merchandisepage.html">
+                  <i class="fas fa-shopping-cart"></i> Merchandise
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Home/1.landingpage.html">
+                  <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
               </li>
             </ul>
@@ -101,67 +76,6 @@
                   <!-- Participants will be loaded here dynamically -->
                 </tbody>
               </table>
-            </div>
-          </div>
-
-          <!-- Schedule Management Section -->
-          <div id="scheduleManagement" class="mt-4">
-            <h2>Event Schedule Management</h2>
-            <div class="card">
-              <div class="card-body">
-                <form>
-                  <div class="mb-3">
-                    <label class="form-label">Event Name</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label">Start Time</label>
-                      <input type="datetime-local" class="form-control" />
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label">End Time</label>
-                      <input type="datetime-local" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea class="form-control" rows="3"></textarea>
-                  </div>
-
-                  <!-- New File Upload Section -->
-                  <div class="mb-3">
-                    <label class="form-label">Event Materials</label>
-                    <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label">Event Images</label>
-                        <input
-                          type="file"
-                          class="form-control"
-                          accept="image/*"
-                          multiple
-                        />
-                        <small class="text-muted"
-                          >Upload event images (JPG, PNG)</small
-                        >
-                      </div>
-                      <div class="col-md-6 mb-3">
-                        <label class="form-label">Event Documents</label>
-                        <input
-                          type="file"
-                          class="form-control"
-                          accept=".pdf"
-                          multiple
-                        />
-                        <small class="text-muted">Upload PDF documents</small>
-                      </div>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">
-                    Add Event
-                  </button>
-                </form>
-              </div>
             </div>
           </div>
         </main>

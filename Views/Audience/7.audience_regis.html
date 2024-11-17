@@ -98,7 +98,24 @@
             const phone = document.getElementById('phone').value;
             const numberOfTickets = document.getElementById('numberOfTickets').value;
 
-            // Redirect to payment page with query parameters
+            // Create audience record
+            const audienceRecord = {
+                name: name,
+                email: email,
+                phone: phone,
+                tickets: numberOfTickets
+            };
+
+            // Get existing audience records
+            const existingAudience = JSON.parse(localStorage.getItem('audience') || '[]');
+            
+            // Add new record
+            existingAudience.push(audienceRecord);
+            
+            // Save back to localStorage
+            localStorage.setItem('audience', JSON.stringify(existingAudience));
+
+            // Redirect to payment page
             const paymentPage = `9.payment_ad.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&numberOfTickets=${numberOfTickets}`;
             window.location.href = paymentPage;
         });
