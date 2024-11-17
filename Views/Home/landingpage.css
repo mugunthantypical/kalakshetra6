@@ -27,6 +27,91 @@ body {
   color: #ffa200 !important; /* Orange color on hover */
 }
 
+/*Annoucement bar styling*/
+
+.announcement-section {
+  padding: 40px 0;  /* Reduced padding */
+  background-color: #2b1819;
+  min-height: 100vh; /* Make it fill the viewport height */
+  display: flex;
+  align-items: center;
+}
+
+.announcement-board {
+  background: linear-gradient(145deg, #3a1f20, #2b1819);
+  border-radius: 15px;
+  padding: 25px;  /* Reduced padding */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1000px;  /* Increased max-width */
+  margin: 0 auto;
+}
+
+.announcement-title {
+  color: #ff812d;
+  font-size: 2.2rem;  /* Slightly reduced font size */
+  font-weight: bold;
+  margin-bottom: 20px;  /* Reduced margin */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.announcement-content {
+  max-height: 70vh;  /* Set maximum height relative to viewport */
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.announcement-item {
+  background: rgba(131, 8, 8, 0.3);
+  border-radius: 10px;
+  padding: 15px;  /* Reduced padding */
+  margin-bottom: 15px;  /* Reduced margin */
+  border-left: 4px solid #ff812d;
+  transition: transform 0.3s ease;
+}
+
+.announcement-item h3 {
+  color: #ffffff;
+  font-size: 1.2rem;  /* Slightly reduced font size */
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.announcement-item p {
+  color: #cccccc;
+  font-size: 0.95rem;  /* Slightly reduced font size */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Update media queries for better responsiveness */
+@media (max-width: 768px) {
+  .announcement-section {
+    padding: 20px;
+  }
+  
+  .announcement-board {
+    margin: 0 15px;
+  }
+  
+  .announcement-title {
+    font-size: 1.8rem;
+  }
+  
+  .announcement-content {
+    max-height: 60vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .announcement-board {
+    padding: 30px 40px;
+  }
+}
+
 .hero-section-1, .hero-section-2, .hero-section-3, .hero-section-4 , .hero-section-5 {
   display: flex;
   align-items: center; /* Vertically center the content */
@@ -71,7 +156,7 @@ body {
 }
 
 .hero-content p {
-  font-size: 1rem;
+  font-size: 1.7 rem;
   margin-bottom: 10px;
 }
 
@@ -293,7 +378,7 @@ details[open] .accordion-button::after {
 }
 
 .about-title {
-  font-size: 3.5rem;
+  font-size: 5.5rem;
   font-weight: bold;
   margin-bottom: 30px;
   color: #ffffff;
