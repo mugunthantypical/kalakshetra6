@@ -412,6 +412,10 @@ details[open] .accordion-button::after {
   min-height: 80vh;
 }
 
+.hero-section-8 {
+  position: relative;
+}
+
 .ticket-content {
   text-align: center;
   padding: 20px;
