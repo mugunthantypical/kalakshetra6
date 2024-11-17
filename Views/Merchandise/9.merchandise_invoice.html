@@ -8,11 +8,16 @@
 </head>
 <style>
   body {
-    background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Pictures/BackgroundPic1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f0f0f5;
+    /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
     color: white;
     min-height: 100vh;
     padding: 40px 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; */
   }
 
   .card {
@@ -40,6 +45,20 @@
     color: #28a745 !important;
   }
 
+  .btn-custom {
+    background-color: #FF4500;
+    border: none;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    color: white;
+  }
+
+  .btn-custom:hover {
+      background-color: #bf9d63;
+    }
+
 </style>
 
 <body>
@@ -55,7 +74,7 @@
       <div class="card-body">
         <!-- Invoice Header -->
         <div class="text-center mb-4">
-          <h4 class="card-title">Registration Invoice</h4>
+          <h4 class="card-title">Merchandise Invoice</h4>
           <p>Invoice Date: <span id="invoice-date">12/11/2024</span></p>
           <p>Invoice Number: <span id="invoice-number">INV-000123</span></p>
         </div>
@@ -99,6 +118,8 @@
         <div class="text-center mt-4">
           <p>If you have any questions about this invoice, please contact:</p>
           <p><strong>Email:</strong> kalakshetra@gmail.com | <strong>Phone:</strong> (019) 244-5175</p>
+
+          <a href="/Views/Home/1.landingpage.html" class="btn btn-custom mt-4">Return to Home</a>
         </div>
       </div>
     </div>
