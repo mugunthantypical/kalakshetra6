@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
-            font-family: 'Poppins', sans-serif;
-            color: #f8f9fa;
+            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Pictures/Baratham_Pic2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #f0f0f5;
+            font-family: 'Arial', sans-serif;
+            /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+            font-family: 'Arial', sans-serif;
+            color: #f8f9fa; */
         }
 
         h1, h2 {
@@ -28,7 +34,7 @@
         }
 
         .ticket h3 {
-            color: #d2a679;
+            color: #E07734;
             text-align: center;
             font-weight: 700;
         }
@@ -40,13 +46,13 @@
         }
 
         .btn-success {
-            background: #28a745;
+            background: #E07734;
             border: none;
             transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
         }
 
         .btn-success:hover {
-            background: #218838;
+            background: #D66A2D;
             transform: scale(1.05);
         }
 
@@ -58,12 +64,13 @@
 
         p {
             color: #f0f0f5;
-            font-size: 16px;
+            font-size: 18px;
             margin: 8px 0;
         }
 
         footer {
             margin-top: 30px;
+            margin-bottom: 0px;
             color: #f8f9fa;
             text-align: center;
             font-size: 14px;
@@ -78,6 +85,7 @@
 
         <div class="ticket" id="ticket">
             <h3>Audience Ticket</h3>
+            <br>
             <p><strong>Name:</strong> <span id="ticketName"></span></p>
             <p><strong>Email:</strong> <span id="ticketEmail"></span></p>
             <p><strong>Phone:</strong> <span id="ticketPhone"></span></p>
@@ -91,9 +99,9 @@
         <button id="downloadTicket" class="btn btn-success mt-4">Download Ticket</button>
     </div>
 
-    <footer>
+    <!-- <footer>
         © 2024 Kalakshetra Dance Competition | All Rights Reserved
-    </footer>
+    </footer> -->
 
     <script>
         // Function to get query parameters from the URL
