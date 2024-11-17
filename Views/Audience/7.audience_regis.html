@@ -7,28 +7,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/Pictures/Baratham_Pic2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #f0f0f5;
-            font-family: 'Verdana', sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         h1 {
-            color: #d2a679;
+            color: #f3efec;
+            font-weight: bold;
         }
         h2 {
-            color: #d2a679;
+            color: #f5f0ed;
             padding-bottom: 35px;
+            font-weight: bold;
         }
         .container {
-            max-width: 480px;
+            width: 60%; /* Set the width to 60% */
+            max-width: 1000px; /* You can keep this if you want a maximum width */
+            height: 60%;
+            max-height: 1000px;
             background-color: rgba(26, 26, 26, 0.9);
-            padding: 35px;
+            padding: 75px;
             border-radius: 12px;
             box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
+            margin: 0 auto; /* Center the container */
         }
         .form-control {
             background-color: #2f3339;
-            color: #f0f0f5;
-            border: 1px solid #555;
+            color: #ffffff;
+            border: 1px solid #484444;
         }
         .form-control:focus {
             background-color: #3e444d;
@@ -36,10 +45,10 @@
             box-shadow: none;
         }
         label {
-            color: #cccccc;
+            color: #d9d7d7;
         }
         .btn-primary {
-            background-color: #d2a679;
+            background-color: #E07734;
             border: none;
             font-weight: bold;
             padding: 12px 25px;
@@ -53,7 +62,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Kalakshetra 5.0</h1>
+        <h1 class="text-center">Kalakshetra 6.0</h1>
         <h2 class="text-center">Audience Registration</h2>
 
         <form id="registration">

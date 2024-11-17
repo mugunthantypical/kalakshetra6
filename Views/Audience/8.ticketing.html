@@ -6,26 +6,86 @@
     <title>Kalakshetra Dance Competition - Audience Ticket</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Pictures/Baratham_Pic2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #f0f0f5;
+            font-family: 'Arial', sans-serif;
+            /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+            font-family: 'Arial', sans-serif;
+            color: #f8f9fa; */
+        }
+
+        h1, h2 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
         .ticket {
-            border: 2px dashed #007bff;
-            border-radius: 10px;
+            border: 2px solid #007bff;
+            border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
-            background-color: #f8f9fa;
+            background-color: rgba(26, 26, 26, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
         }
+
         .ticket h3 {
-            color: #007bff;
+            color: #E07734;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .btn {
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-success {
+            background: #E07734;
+            border: none;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .btn-success:hover {
+            background: #D66A2D;
+            transform: scale(1.05);
+        }
+
+        .container {
+            
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        p {
+            color: #f0f0f5;
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            margin-bottom: 0px;
+            color: #f8f9fa;
+            text-align: center;
+            font-size: 14px;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Kalakshetra 5.0</h1>
-        <h2 class="text-center">Audience Ticket</h2>
+    <div class="container">
+        <h1>Kalakshetra 6.0</h1>
+        <h2>Audience Ticket</h2>
 
         <div class="ticket" id="ticket">
-            <h3 class="text-center">Audience Ticket</h3>
+            <h3>Audience Ticket</h3>
+            <br>
             <p><strong>Name:</strong> <span id="ticketName"></span></p>
             <p><strong>Email:</strong> <span id="ticketEmail"></span></p>
             <p><strong>Phone:</strong> <span id="ticketPhone"></span></p>
@@ -36,10 +96,12 @@
             <p><strong>Ticket ID:</strong> <span id="ticketID"></span></p>
         </div>
 
-        <div class="text-center">
-            <button id="downloadTicket" class="btn btn-success mt-4">Download Ticket</button>
-          </div>
+        <button id="downloadTicket" class="btn btn-success mt-4">Download Ticket</button>
     </div>
+
+    <!-- <footer>
+        © 2024 Kalakshetra Dance Competition | All Rights Reserved
+    </footer> -->
 
     <script>
         // Function to get query parameters from the URL
@@ -49,7 +111,7 @@
             const regex = /([^&=]+)=([^&]*)/g;
             let m;
 
-            while (m = regex.exec(queryString)) {
+            while ((m = regex.exec(queryString))) {
                 params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
             }
 
@@ -67,11 +129,10 @@
         document.getElementById('ticketID').innerText = params.ticketID || 'N/A';
 
         // Function to download the ticket as a PDF
-        document.getElementById('downloadTicket').addEventListener('click', function() {
+        document.getElementById('downloadTicket').addEventListener('click', function () {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            // Add ticket content to the PDF
             doc.setFontSize(20);
             doc.text('Audience Ticket', 20, 20);
             doc.setFontSize(12);
@@ -79,12 +140,11 @@
             doc.text(`Email: ${params.email}`, 20, 40);
             doc.text(`Phone: ${params.phone}`, 20, 50);
             doc.text(`Number of Tickets: ${params.numberOfTickets}`, 20, 60);
-            doc.text(`Event Date: November 10, 2024`, 20, 70);
-            doc.text(`Event Time: 5:00 PM`, 20, 80);
-            doc.text(`Venue: Kalakshetra Foundation, Chennai`, 20, 90);
+            doc.text(`Event Date: May 5, 2024`, 20, 70);
+            doc.text(`Event Time: 7:00 PM`, 20, 80);
+            doc.text(`Venue: Dewan Budaya, USM`, 20, 90);
             doc.text(`Ticket ID: ${params.ticketID}`, 20, 100);
 
-            // Save the PDF
             doc.save('ticket.pdf');
         });
     </script>
