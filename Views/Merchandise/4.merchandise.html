@@ -8,65 +8,175 @@
 </head>
 
 <style>
-  body {
-    background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
-    color: #333;
-    font-family: Arial, sans-serif;
+   body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/Pictures/BackgroundPic1.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #f0f0f5;
+    font-family: 'Arial', sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 80vh;
   }
+
+  .header-section {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-title {
+    color: #fffbfa;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #fff;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    opacity: 0.9;
+  }
+
   .card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 69, 0, 0.1);
+    overflow: hidden;
   }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  }
+
   .card-img-top {
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px; 
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
   }
+
+  .card:hover .card-img-top {
+    opacity: 1;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
   .card-title {
-    font-size: 1.25rem;
+    color: #ffffff;
     font-weight: bold;
-    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
+
   .card-text {
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
   }
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
+
+  .cart-section {
+    background-color: rgba(26, 26, 26, 0.8);
+    padding: 1rem 2rem;
     border-radius: 30px;
-    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 2rem;
   }
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  .btn-danger {
-    background-color: #dc3545;
-    border: none;
-    padding: 10px 20px;
+
+  .cart-count {
+    color: #ffffff;
     font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-custom-add, .btn-custom-remove {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+  }
+
+  .btn-custom-add {
+    background-color: #FF4500;
+    border: 2px solid #FF4500;
+  }
+
+  .btn-custom-remove {
+    background-color: #8B1F2F;
+    border: 2px solid #8B1F2F;
+  }
+
+  .btn-custom-add:hover {
+    background-color: #bf9d63;
+    border-color: #bf9d63;
+    transform: scale(1.05);
+  }
+
+  .btn-custom-remove:hover {
+    background-color: #4A0F1A;
+    border-color: #4A0F1A;
+    transform: scale(1.05);
+  }
+
+  .btn-custom-cart {
+    background-color: #FF4500;
+    border: none;
+    font-weight: bold;
+    padding: 15px 35px;
     border-radius: 30px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    color: white;
+    min-width: 200px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
   }
-  .btn-danger:hover {
-    background-color: #c82333;
+
+  .btn-custom-cart:hover {
+    background-color: #bf9d63;
+    color: white;
+    transform: scale(1.05);
   }
+
   .error-message {
-    color: red;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 2px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: #fffefd;
     display: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 15px;
+    font-size: 1.1rem;
+    padding: 10px;
   }
 </style>
 
 <body>
   <div class="container mt-5">
-    <h2 class="text-center mb-4" style="color:#ffffff">Our Merchandise</h2>
-    <!-- Cart count display -->
-    <div class="text-right mb-4" style="color: #ffffff;">
-      <span>Cart: <span id="cart-count">0</span> items</span>
+    <div class="header-section">
+      <h1 class="main-title">Kalakshetra Collectibles</h1>
+      <p class="subtitle">Take home a piece of our cultural celebration</p>
+    </div>
+    <div class="text-right">
+      <div class="cart-section">
+        <span class="cart-count">Shopping Cart: <span id="cart-count">0</span> items</span>
+      </div>
     </div>
     <div class="row">
       <!-- Merchandise Item 1 -->
@@ -76,8 +186,8 @@
           <div class="card-body text-center">
             <h5 class="card-title">Tote Bag</h5>
             <p class="card-text" id="merchandise1-price">RM20.00</p>
-            <button class="btn btn-primary add-to-cart-btn" data-name="Tote Bag" data-price="20.00">+</button>
-            <button class="btn btn-danger remove-from-cart-btn" data-name="Tote Bag">-</button>
+            <button class="btn btn-custom-add add-to-cart-btn" data-name="Tote Bag" data-price="20.00">+</button>
+            <button class="btn btn-custom-remove remove-from-cart-btn" data-name="Tote Bag">-</button>
           </div>
         </div>
       </div>
@@ -89,8 +199,8 @@
           <div class="card-body text-center">
             <h5 class="card-title">Key Chain</h5>
             <p class="card-text" id="merchandise2-price">RM15.00</p>
-            <button class="btn btn-primary add-to-cart-btn" data-name="Key Chain" data-price="15.00">+</button>
-            <button class="btn btn-danger remove-from-cart-btn" data-name="Key Chain">-</button>
+            <button class="btn btn-custom-add add-to-cart-btn" data-name="Key Chain" data-price="15.00">+</button>
+            <button class="btn btn-custom-remove remove-from-cart-btn" data-name="Key Chain">-</button>
           </div>
         </div>
       </div>
@@ -102,18 +212,19 @@
           <div class="card-body text-center">
             <h5 class="card-title">T-Shirt</h5>
             <p class="card-text" id="merchandise3-price">RM30.00</p>
-            <button class="btn btn-primary add-to-cart-btn" data-name="T-Shirt" data-price="30.00">+</button>
-            <button class="btn btn-danger remove-from-cart-btn" data-name="T-Shirt">-</button>
+            <button class="btn btn-custom-add add-to-cart-btn" data-name="T-Shirt" data-price="30.00">+</button>
+            <button class="btn btn-custom-remove remove-from-cart-btn" data-name="T-Shirt">-</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="text-center mt-4">
-    <button type="submit" class="btn btn-primary" id="go-to-cart-button">Go to Cart</button>
-    <p class="error-message" id="error-message">Your cart is empty. Please add items to the cart before proceeding.</p>
+  <div class="text-center mt-5 mb-5">
+    <button type="submit" class="btn btn-custom-cart" id="go-to-cart-button">View Shopping Cart</button>
+    <p class="error-message" id="error-message">Your cart is empty. Please add items to continue shopping.</p>
   </div>
+
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -127,19 +238,15 @@
       const itemName = button.getAttribute('data-name');
       const itemPrice = parseFloat(button.getAttribute('data-price'));
 
-      // Retrieve existing cart items from localStorage or initialize empty array
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      // Check if item is already in cart, increase quantity if so
       const existingItem = cart.find(item => item.name === itemName);
+      
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        // Add new item to cart with initial quantity of 1
         cart.push({ name: itemName, price: itemPrice, quantity: 1 });
       }
 
-      // Update localStorage and cart count
       localStorage.setItem('cart', JSON.stringify(cart));
       cartCount++;
       document.getElementById('cart-count').textContent = cartCount;
@@ -151,40 +258,30 @@
       const button = event.target;
       const itemName = button.getAttribute('data-name');
 
-      // Retrieve existing cart items from localStorage or initialize empty array
       let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      // Check if item exists in cart
       const existingItem = cart.find(item => item.name === itemName);
+      
       if (existingItem) {
-        // Decrease quantity or remove item if quantity reaches zero
         if (existingItem.quantity > 1) {
-          existingItem.quantity -= 1; 
+          existingItem.quantity -= 1;
         } else {
           cart = cart.filter(item => item.name !== itemName);
         }
-        // Update cart count
         cartCount--;
         document.getElementById('cart-count').textContent = cartCount;
-
-        // Update localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
-
         alert("Item removed from cart!");
       }
     }
 
-    // Event listener for "Add to Cart" buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
       button.addEventListener('click', addToCart);
     });
 
-    // Event listener for "Remove from Cart" buttons
     document.querySelectorAll('.remove-from-cart-btn').forEach(button => {
       button.addEventListener('click', removeFromCart);
     });
 
-    // Handle "Go to Cart" button click
     document.getElementById('go-to-cart-button').addEventListener('click', function() {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       if (cart.length === 0) {

@@ -8,19 +8,51 @@
 </head>
 
 <style>
+
   body {
-    background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/Pictures/Baratham_Pic3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f0f0f5;
+    font-family: 'Arial', sans-serif;
+    /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
     color: rgb(255, 255, 255);
     min-height: 100vh;
-    padding: 40px 0;
+    padding: 40px 0; */
   }
 
-.card {
-    background-color: rgba(26, 26, 26, 0.9);
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-};
+  .participant {
+      font-weight: bolder;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .card {
+      background-color: rgba(26, 26, 26, 0.9);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-primary {
+      background-color: #E07734;
+      border: none;
+      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 25px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #bf9d63;
+    }
+
+    .text-custom {
+      color: #E07734;
+      font-weight: bold;
+    }
+
 </style>
 
 <body>
@@ -28,12 +60,16 @@
 
   <div class="text-center mb-5">
     <br>
+
+  <div class="participant">
     <h2>Registration Payment</h2>
     <p class="lead">Please complete your payment to finalize the registration.</p>
-    <div class="card shadow-sm" style="max-width: 400px; margin: 0 auto;">
+  </div>
+
+  <div class="card shadow-sm" style="max-width: 400px; margin: 0 auto;">
   <div class="card-body text-center">
         <h4>Registration Fee</h4>
-        <h2 class="text-primary" id="registration-fee">RM0.00</h2>
+        <h2 class="text-custom" id="registration-fee"><strong>RM0.00</strong></h2>
       </div>
     </div>
   </div>
