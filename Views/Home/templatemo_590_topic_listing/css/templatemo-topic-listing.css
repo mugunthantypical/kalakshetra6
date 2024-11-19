@@ -544,6 +544,7 @@ strong {
   padding: 30px;
   transition: all 0.3s ease;
   height: 100%;
+  color: #ffffff;
 }
 
 .custom-block:hover {
@@ -838,6 +839,7 @@ blockquote {
 .faq-section .accordion-button {
   font-size: var(--h6-font-size);
   font-weight: var(--font-weight-semibold);
+  color: #ffffff;
 }
 
 .faq-section .accordion-item:first-of-type .accordion-button {
@@ -851,7 +853,7 @@ blockquote {
 }
 
 .faq-section .accordion-body {
-  color: var(--p-color);
+  color: #e0e0e0;
   font-size: var(--btn-font-size);
   line-height: 40px;
 }
@@ -931,6 +933,7 @@ blockquote {
 .site-footer {
   border-bottom: 10px solid var(--secondary-color);
   position: relative;
+  color: #ffffff;
 }
 
 .site-footer::after {
@@ -955,7 +958,7 @@ blockquote {
 }
 
 .site-footer .dropdown-item {
-  color: var(--p-color);
+  color: #e0e0e0;
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-medium);
   padding: 4px 18px;
@@ -995,13 +998,14 @@ blockquote {
 }
 
 .site-footer-link {
-  color: var(--secondary-color);
+  color: #e0e0e0;
   font-size: var(--copyright-font-size);
   font-weight: var(--font-weight-medium);
   line-height: normal;
 }
 
 .copyright-text {
+  color: #e0e0e0;
   font-size: var(--copyright-font-size);
 }
 
