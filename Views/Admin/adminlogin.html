@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Kalakshetra 6.0</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #830808;
+            --secondary-color: #E07734;
+            --background-color: #2b1819;
+            --text-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--background-color), #4a1f20);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+    
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        /* Animated Background Effect */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                var(--secondary-color)
+            );
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+    
+        .login-container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                transparent,
+                transparent,
+                var(--primary-color)
+            );
+            animation: rotate 4s linear infinite;
+            animation-delay: -2s;
+            z-index: -1;
+        }
+    
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+    
+        .login-header h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    
+        .login-header p {
+            color: rgba(255,255,255,0.7);
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+    
+        .form-group label {
+            display: block;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+    
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+    
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(224, 119, 52, 0.3);
+        }
+    
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Admin Login</h2>
+            <p>Kalakshetra 6.0 Event Management</p>
+        </div>
+        <form id="adminLoginForm" onsubmit="return handleLogin(event);">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+    </div>
+
+    <script>
+       // Initialize admin credentials if not exists
+       function initializeAdminCredentials() {
+        const defaultAdmins = [
+            { 
+                username: 'admin1', 
+                password: 'kalakshetra2024',
+                name: 'Main Admin',
+                email: 'admin1@kalakshetra.com'
+            },
+            { 
+                username: 'admin2', 
+                password: 'event2024',
+                name: 'Event Coordinator',
+                email: 'admin2@kalakshetra.com'
+            }
+        ];
+
+        // Store admins in localStorage if not already stored
+        if (!localStorage.getItem('adminUsers')) {
+            localStorage.setItem('adminUsers', JSON.stringify(defaultAdmins));
+        }
+    }
+
+    // Function to handle login
+    function handleLogin(event) {
+        event.preventDefault();
+
+        // Initialize credentials if needed
+        initializeAdminCredentials();
+
+        // Get input values
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Retrieve stored admin users
+        const storedAdmins = JSON.parse(localStorage.getItem('adminUsers') || '[]');
+
+        // Find matching admin
+        const foundAdmin = storedAdmins.find(
+            admin => admin.username === username && admin.password === password
+        );
+
+        if (foundAdmin) {
+            // Store login session
+            localStorage.setItem('currentAdmin', JSON.stringify(foundAdmin));
+            
+            // Redirect to admin page
+            window.location.href = 'adminpage.html';
+        } else {
+            alert('Invalid username or password');
+        }
+    }
+
+    // Optional: Check admin session in adminpage.html
+    function checkAdminSession() {
+        const currentAdmin = JSON.parse(localStorage.getItem('currentAdmin'));
+        
+        if (!currentAdmin) {
+            // Redirect to login if no active session
+            window.location.href = 'adminlogin.html';
+        }
+
+        // Display admin name or other details
+        document.getElementById('adminName').textContent = currentAdmin.name;
+    }
+</script>
+</body>
+</html>
