@@ -3,15 +3,15 @@
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #13547a;
-  --secondary-color:              #80d0c7;
-  --section-bg-color:             #f0f8ff;
-  --custom-btn-bg-color:          #80d0c7;
-  --custom-btn-bg-hover-color:    #13547a;
+  --primary-color:                #E9C46A;
+  --secondary-color:              #F4A261;
+  --section-bg-color:             #FFF8F0;
+  --custom-btn-bg-color:          #d08080;
+  --custom-btn-bg-hover-color:    #7a1313;
   --dark-color:                   #000000;
-  --p-color:                      #717275;
-  --border-color:                 #7fffd4;
-  --link-hover-color:             #13547a;
+  --p-color:                      #264653;
+  --border-color:                 #ff7f7f;
+  --link-hover-color:             #7a1313;
 
   --body-font-family:             'Open Sans', sans-serif;
   --title-font-family:            'Montserrat', sans-serif;
@@ -38,7 +38,7 @@
 }
 
 body {
-  background-color: var(--white-color);
+  background-color: var(--section-bg-color);
   font-family: var(--body-font-family); 
 }
 
@@ -52,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--dark-color);
+  color: #264653 /* var(--dark-color)*/;
 }
 
 h1,
@@ -139,7 +139,7 @@ strong {
 }
 
 .section-overlay {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-image: linear-gradient(15deg, #d24420 0%, #f4aa97 100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -240,7 +240,7 @@ strong {
   SITE HEADER              
 -----------------------------------------*/
 .site-header {
-  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  background-image: linear-gradient(15deg, #d22020 0%, #f49797 100%);
   padding-top: 150px;
   padding-bottom: 80px;
 }
@@ -281,7 +281,7 @@ strong {
 
 .navbar {
   background: transparent;
-  border-bottom: 1px solid rgba(128, 208, 199, 0.35);
+  border-bottom: 1px solid rgba(208, 128, 128, 0.35);
   z-index: 9;
 }
 
@@ -317,11 +317,11 @@ strong {
 
 .navbar-nav .nav-link.active, 
 .navbar-nav .nav-link:hover {
-  color: var(--primary-color);
+  color: gold;
 }
 
 .navbar .dropdown-menu {
-  background: var(--white-color);
+  background: var(--primary-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border: 0;
   display: inherit;
@@ -443,7 +443,7 @@ strong {
 }
 
 .navbar-toggler .navbar-toggler-icon {
-  background: var(--white-color);
+  background: var(--section-bg-color);
   transition: background 10ms 300ms ease;
   display: block;
   width: 30px;
@@ -478,7 +478,7 @@ strong {
   HERO        
 -----------------------------------------*/
 .hero-section {
-  background-image: linear-gradient(15deg, rgba(19, 84, 122, 0.90) 0%, rgba(128, 208, 199, 0.90)),
+  background-image: linear-gradient(15deg, rgba(122, 19, 19, 0.85) 0%, rgba(208, 128, 128, 0.85)),
                     url('/Pictures/CoverPicture.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -722,7 +722,7 @@ blockquote {
   TIMELINE              
 -----------------------------------------*/
 .timeline-section {
-  background-image: url('../images/colleagues-working-cozy-office-medium-shot.jpg');
+  background-image: url('/Pictures/Baratham_Pic3.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
