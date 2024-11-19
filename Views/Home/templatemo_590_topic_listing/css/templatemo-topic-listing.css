@@ -189,6 +189,12 @@ strong {
   color: var(--primary-color);
 }
 
+.admin-login-text {
+  margin-bottom: 5px;
+  line-height: 4rem; /* Adjust the line-height to match the icon height */
+  color: #fff;
+}
+
 
 /*---------------------------------------
   CUSTOM ICON COLOR               
