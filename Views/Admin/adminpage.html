@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="admin.css">
 
   <body>
+    
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar -->
@@ -235,5 +236,19 @@
         alert('Registrations have been reset.');
       }
     }
+
+    function checkAdminSession() {
+      const currentAdmin = JSON.parse(localStorage.getItem('currentAdmin'));
+      
+      if (!currentAdmin) {
+          // Redirect to login if no active session
+          window.location.href = 'adminlogin.html';
+      }
+
+      // Display admin name
+      document.getElementById('adminName').textContent = currentAdmin.name;
+  }
+
+
   </script>
 </html>

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalakshetra Dance Competition - Audience Ticket</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Views/Home/style.css">
     <style>
+        :root {
+            --primary-color: #FF4F79;
+            --secondary-color: #1A1A2E;
+            --accent-color: #4ECDC4;
+            --text-color: #fff;
+            --card-bg: rgba(26, 26, 26, 0.9);
+            --hover-color: #FF3D5A;
+        }
+
         body {
-            background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Pictures/Baratham_Pic2.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #f0f0f5;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             font-family: 'Arial', sans-serif;
-            /* background: linear-gradient(45deg, #8B1F2F, #4A0F1A);
-            font-family: 'Arial', sans-serif;
-            color: #f8f9fa; */
         }
 
         h1, h2 {
@@ -25,16 +29,16 @@
         }
 
         .ticket {
-            border: 2px solid #007bff;
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
             border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
-            background-color: rgba(26, 26, 26, 0.9);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
         }
 
         .ticket h3 {
-            color: #E07734;
+            color: var(--primary-color);
             text-align: center;
             font-weight: 700;
         }
@@ -46,8 +50,8 @@
         }
 
         .btn-success {
-            background: #E07734;
-            border: none;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
             transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
         }
 
