@@ -5,7 +5,7 @@ body {
 
 /* Sidebar Styling */
 .sidebar {
-    background-color: #2b1819;
+    background-color: rgba(16, 29, 44, 0.95);
     min-height: 100vh;
     padding-top: 20px;
 }
