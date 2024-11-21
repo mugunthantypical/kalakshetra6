@@ -11,7 +11,7 @@
 <style>
 
   body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/Pictures/BackgroundPic1.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.848)), url("/Pictures/BackgroundPic1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,8 @@
   }
 
   .cart-container, .summary-card {
-    background-color: var(--card-bg);
+    /* background-color: var(--card-bg); */
+    background-color: rgba(16, 29, 44, 0.95);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     padding: 20px;
@@ -87,7 +88,8 @@
   }
 
   .btn-custom-outline {
-    background-color: var(--secondary-color);
+    /* background-color: var(--secondary-color); */
+    background-color: #16d50c;
     border: 2px solid var(--secondary-color);
     font-weight: bold;
     padding: 12px 25px;
@@ -138,7 +140,7 @@
           <div class="empty-cart" id="empty-cart-message" style="display: none;">
             <h4>Your cart is empty</h4>
             <p>Add some items to your cart to see them here.</p>
-            <button class="btn btn-primary" onclick="window.location.href='/Views/Merchandise/4.merchandise.html'">Continue Shopping</button>
+            <button class="btn-custom-outline" onclick="window.location.href='/Views/Merchandise/4.merchandise.html'">Continue Shopping</button>
           </div>
         </div>
       </div>
@@ -160,7 +162,7 @@
             <strong>Total:</strong>
             <strong id="total" class="text-price">RM0.00</strong>
           </div>
-          <button class="btn btn-primary w-100 mt-3" id="checkout-btn" onclick="window.location.href='/Views/Merchandise/9.merchandise_invoice.html'">Proceed to Checkout</button>
+          <button class="btn btn-primary w-100 mt-3" id="checkout-btn" onclick="window.location.href='/Views/Merchandise/payment_merc.html'">Proceed to Checkout</button>
           <button class="btn btn-custom-outline w-100 mt-2" onclick="window.location.href='/Views/Merchandise/4.merchandise.html'">Continue Shopping</button>
         </div>
       </div>
