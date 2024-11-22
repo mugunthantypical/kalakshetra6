@@ -47,6 +47,9 @@ body {
   color: var(--text-color);
   border: none;
   background-color: transparent;
+  position: absolute;
+  top: 0.5rem; /* Adjust as needed */
+  right: 1rem; /* Adjust as needed */
 }
 
 .navbar-toggler:focus {
@@ -115,8 +118,9 @@ body {
   color: var(--text-color);
   transition: all 0.3s ease;
   border-radius: 25px;
-  margin-left: 1.25rem; /* Added margin to separate from nav items */
-  padding: 0.5rem 1rem; /* Added padding to the button */
+  /*margin-left: 1.25rem;  Added margin to separate from nav items */
+  /* padding: 0.5rem 1rem; Added padding to the button */
+  position: relative;
 }
 
 .btn-custom1:hover {
