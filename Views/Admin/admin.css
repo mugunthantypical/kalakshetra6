@@ -27,11 +27,11 @@ body {
 
 .sidebar .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #E07734;
+    color: #ffffff;
 }
 
 .sidebar .nav-link.active {
-    background-color: #E07734;
+    background-color: #233f9c;
     color: #ffffff;
 }
 
@@ -55,12 +55,12 @@ body {
 }
 
 .btn-primary {
-    background-color: #E07734;
+    background-color: #3437e0;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #D0632A;
+    background-color: #2a9ed0;
 }
 
 /* Table Styling */
